@@ -1,0 +1,86 @@
+
+**********************************
+**********************************
+Environment **********************
+
+1.0 10.0   			pHmin, pHmax
+0.25 0.05 0.05			dpHmax, dpHmin, dpHstp; dpHmax paso maximo de pH, dpHmin paso minimo de pH, el paso de pH cambia segun se encuentran soluciones o no, lo cual depende de guess inicial, dpHstp paso con el cambia el paso
+		
+0.1				csalt, concentacion de sal Molar
+
+
+
+**********************************
+**********************************
+Resolution ***********************
+
+0
+
+0.5 0.5		 	       	delta_r delta_z (nm)    ! Tamanio espaciamiento grilla r,z
+1 100				r-rings z-layers        !  cantidad de celdas, estos parametros deben ser lo suficientemente grandes para alcanzar comportamiento bulk
+
+200			       	dimkrlv                 !  dimension de algo para el solver leer manual del solver, Gabriel no ha tenido que cambiar estos parametros  
+200			       	mxiter                  !  Maximo numero de iteraciones  
+
+1.0d-5				errtol(1)               !  Criterio de convergencia para el solver, Gabriel no ha tenido que cambiar estos parametros
+1.0d-10			       	errtol(2)               !  Criterio de convergencia para el solver
+
+
+
+**********************************
+**********************************
+Membrane  ************************
+
+0.2
+4.5				pK_I      ! pKa lipido ionizable, en el bulk. dato experimental
+-1.0				z_I       ! Carga del lipido ionizable, este numero puede ser +1, i.j. en el caso de una base. 
+
+0.6				a_I (nm^2)  ! Area por lipido del lipido ionizable
+0.6				a_N         ! Area por lipido del lipido neutro
+0.6				a_l         ! Area de referencia, normaliza a las demas, Poner igual a area de lipido mas chico
+
+2.0				eps_membrane (relative)  ! Permitividad de la membrana
+	
+5.0				thickness=pore depth (nm), must be: 2*integer*delta_z  !    Profundidad del Poro. Debe ser un (numero par)x(deltaz). Asumimos que el centro del poro no cae en un punto de grilla
+
+
+**********************************
+**********************************
+Pore  ****************************
+
+
+0.0				Radius (nm), must be: integer*delta_r   ! Radio del poro
+
+
+**********************************
+**********************************
+Peptide **************************
+
+1d-6 				peptide concentration in M         
+
+
+
+
+**********************************
+**********************************
+Solution *************************
+
+300.0				Temperature
+
+14.0				pKw
+
+0.030				vsol (nm^3)             ! volumen  molecula de agua
+1.0				vH (units of vsol)      ! volumen de OH3+ en undidades de vsol
+1.0				vOH (units of vsol)	! volumen del OH en unidades de vsol			 
+0.2				r_pls (nm)              ! radio de la molecula de sal cation (monovalente)
+0.2				r_min (nm)              ! radio del anion (monovalente)
+
+1.0				zH		        ! carga del proton
+-1.0				zOH                     ! carga oH 
+1.0				zpls                    ! carga cation sal   
+-1.0				zmin
+
+78.5				eps_w (relative)       ! epsilon agua
+
+
+
